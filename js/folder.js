@@ -42,7 +42,47 @@ document.getElementById('add_folder').addEventListener("click",function(){
         div.appendChild(span2);
         div.appendChild(chdiv);
         folders.insertBefore(div,addFolder);
+        const title_objs={innerp:"comment",innerh1:title,files:{}}
+        window.localStorage.setItem(title,JSON.stringify(title_objs));
     }
 })
 
 
+//create all folders on start
+for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    console.log(`${key}: ${localStorage.getItem(key)}`);
+    console.log(JSON.parse(localStorage.getItem(key)));
+    
+    var contents=JSON.parse(localStorage.getItem(key));
+    var addFolder=document.getElementById("add_folder_div")
+    var folders=addFolder.parentNode;
+    var div=document.createElement("div");
+    var chdiv=document.createElement("div");
+    var span1=document.createElement("span");
+    var span2=document.createElement("span");
+    var img1 =document.createElement("img");
+    var p=document.createElement("p");
+    var h1=document.createElement("h1");
+    var input=document.createElement("input");
+    div.className = 'folder';
+    chdiv.className='folder_files';
+    span1.className='folder_title';
+    span2.className='folder_comment';
+    img1.src= "/res/edit.png";
+    var img2=img1.cloneNode(true);
+    p.innerHTML=contents["innerp"];
+    h1.innerHTML=contents["innerh1"];
+    input.className='custom_file_input';
+    input.type="file";
+    span1.appendChild(h1);
+    span1.appendChild(img1);
+    span2.appendChild(p);
+    span2.appendChild(img2);
+    chdiv.appendChild(input);
+    div.appendChild(span1);
+    div.appendChild(span2);
+    div.appendChild(chdiv);
+    folders.insertBefore(div,addFolder);
+
+}
