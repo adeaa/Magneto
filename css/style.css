@@ -1,0 +1,198 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2{
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  padding: 0;
+}
+h1{
+  color: #0a1118;
+}
+h2{
+  color:#202931;
+}
+p{
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/*header*/
+header {
+  display: flex;
+  justify-content: space-between;
+  background-image: linear-gradient(to right, #0a1118, #202931, #0a1118);
+  width: 100%;
+}
+header div {
+  display: inline-flex;
+  align-items: center;
+}
+header div img {
+  margin: 20px;
+}
+header div h1 {
+  color: #fff;
+  margin: 20px;
+}
+header .header_options span {
+  border-radius: 15px;
+  margin: 5px;
+  
+  padding: 0px;
+  background-color: rgba(255, 255, 255, 0.041);
+}
+header .header_options span:hover {
+  background-color: rgba(255, 255, 255, 0.226);
+}
+header .header_options span p{
+  display: none;  
+}
+
+header .header_options span:hover p{
+  display: block;
+  transition: width 5s;
+  width: 200px;
+
+}
+  
+
+
+/*
+header .header_options span[title]{
+  background-color: rgba(255, 255, 255, 0.226);
+}
+/*main*/
+.folders {
+  display: flex;
+  flex-wrap: wrap;
+}
+.folders div {
+  flex-basis: 48%;
+  margin: 5px;
+  padding: 5px;
+}
+.folders .folder {
+  border: 2px solid #202931;
+  border-radius: 5px;
+}
+.folders .folder span{
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.folders .folder .folder_title{
+  background-color: #ebeff3;
+}
+.folders .folder .folder_comment{
+  background-color: #f1f4f7;
+}
+.folders .folder img[src*="edit.png"] {
+  float: right;
+  padding: 4px;
+  border-radius: 5px;
+  transition:all ease-in-out 0.1s;
+  background-color: #0a111869;
+}
+.folders .folder .folder_title img[src*="edit.png"] {
+  width: 20px;
+}
+.folders .folder .folder_comment img[src*="edit.png"] {
+  width: 16px;
+}
+.folders .folder img[src*="edit.png"]:hover {
+  background-color: #0a11189c;
+  cursor: pointer;
+}
+.folders .folder img[src*="edit.png"]:active {
+  background-color: #0a1118;
+}
+.folder #add_folder_div{
+  padding: 5px;
+  margin: 5px;
+}
+.folders #add_folder_div{
+  display: inline-flex;
+  max-height: 80px;
+  align-items: center;
+  border: 2px solid #2029319f;
+  background-color: #dadada69;
+  border-radius: 5px;
+  width: 100%;
+
+}
+.folders #add_folder_div input{
+  width: 1500%;
+  margin: 10px;
+}
+.folders #add_folder_div button:hover {
+  background-color: #0a11189c;
+  cursor: pointer;
+}
+.folders #add_folder_div button:active {
+  background-color: #0a1118;
+}
+.folders #add_folder_div button{
+  display:inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  transition:all ease-in-out 0.1s;
+  border: 2px solid #2029319f;
+  border-radius: 5px;
+  background-color: #0a111869;
+  color: white;
+}
+.folders #add_folder_div button img[src*="plus.png"] {
+  background-color: unset;
+}
+img[src*="plus.png"] {
+  padding: 4px;
+  border-radius: 5px;
+  transition:all ease-in-out 0.1s;
+  background-color: #0a111869;
+}
+img[src*="plus.png"]:hover {
+  background-color: #0a11189c;
+  cursor: pointer;
+}
+img[src*="plus.png"]:active {
+  background-color: #0a1118;
+}
+.custom_file_input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.custom_file_input::before {
+  content: url(/res/plus.png);
+  display: block;
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  background-color: #0a111869;
+  border-radius: 5px;
+  outline: none;
+
+}
+.custom_file_input:hover::before {
+  background-color: #0a11189c;
+  cursor: pointer;
+}
+.custom_file_input:active::before {
+  background-color: #0a1118;
+}
+input[type="file"]{
+  width: 40px;
+  overflow:hidden;
+
+}
+
+
+/*footer*/
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #e6e6e6;
+}

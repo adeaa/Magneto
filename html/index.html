@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/res/magneto.png" type="image/gif" sizes="32x32">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Magneto</title>
+</head>
+
+<body>
+    <header>
+        <div>
+            <img src="/res/magneto-rev.png" alt="magneto logo" width="48px">
+            <h1>Magneto</h1>
+        </div>
+
+        <div class="header_options">
+            <span><img src="/res/info.png" width="16px"><p>this websit is for organizing your files,<br> it has dynamic interactions that make organizing so much easier</p></span>
+            <span><img src="/res/report.png" width="16px"><p>this is a beta version so please report any bugs or issues and let us know your suggestions</p></span>
+        </div>
+    </header>
+    <main>
+        <div class="folders">
+            <div class="folder">
+                <span class="folder_title"><h1 >Title</h1><img src="/res/edit.png"></span>
+                <span class="folder_comment"><p >comment</p><img src="/res/edit.png"></span>
+                <div class="folder_files">
+                    <input type="file" class="custom_file_input" >
+
+                </div>
+                
+            </div>
+
+            <div id="add_folder_div">
+                <input type="text" placeholder="enter title" id="title" maxlength="20">
+                <button id="add_folder">
+                    <img src="/res/plus.png">
+                    <p>add another folder</p>
+                </button>
+                <div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <footer>
+        <div class="logo_footer">
+            <img src="/res/magneto.png" width="32px">
+        </div>
+        <div class="logo_name">
+            Magneto beta version
+        </div>
+        <div class="copyright">
+            ©
+            2021
+            All rights reserved.</div>
+    </footer>
+    <script src="/js/header.js"></script>
+    <script src="/js/folder.js"></script>
+    <script src="/js/file.js"></script>
+</body>
+
+</html>
