@@ -58,17 +58,13 @@ header .header_options span:hover p{
 }
   
 
-
-/*
-header .header_options span[title]{
-  background-color: rgba(255, 255, 255, 0.226);
-}
 /*main*/
 .folders {
   display: flex;
   flex-wrap: wrap;
 }
 .folders div {
+  flex-grow: 2;
   flex-basis: 48%;
   margin: 5px;
   padding: 5px;
@@ -85,17 +81,23 @@ header .header_options span[title]{
 }
 .folders .folder span input[type="text"]{
   width: 100%;
+  text-align: center;
   font-size: 2em;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-weight: bold;
-  margin: 2px;
+  margin: 7px;
 }
 .folders .folder span textarea{
   width:100%;
   height: inherit;
+  margin: 8px;
 }
 .folders .folder .folder_title{
   background-color: #ebeff3;
+}
+.folders .folder .folder_title h1{
+  margin: auto;
+  margin: 10px;
 }
 .folders .folder .folder_comment{
   background-color: #f1f4f7;

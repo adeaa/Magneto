@@ -54,9 +54,16 @@ for (let i = 0; i < localStorage.length; i++) {
 
 }
 
+var title_input=document.getElementById('title')
+title_input.addEventListener("keyup",function(event){
+    if (event.keyCode===13){
+        document.getElementById('add_folder').click()
+    }
+})
 
 document.getElementById('add_folder').addEventListener("click",function(){
-    var title=document.getElementById('title').value;
+    
+    var title=title_input.value;
     document.getElementById('title').value="";
     console.log(title)
     
@@ -109,14 +116,32 @@ for(let i = 0; i < buttons.length; i++){
     console.log(i);
     console.log(buttons[i].parentElement.getAttribute("class"))
     if (buttons[i].previousSibling.tagName=="H1"){
-        buttons[i].parentElement.innerHTML.clear()
-    }else{
+        buttons[i].addEventListener("click",function(){
+            var text=document.createElement("input")
+            text.type="text"
+            buttons[i].style ="display:none;"
+            buttons[i].previousSibling.style ="display:none;"
+            buttons[i].parentElement.appendChild(text)
+            text.addEventListener("keyup",function(event){
+                if (event.keyCode === 13 && check_title(text.value)===true){
+                    buttons[i].previousSibling.innerHTML = text.value
+                    
 
+                    buttons[i].parentElement.removeChild(text)
+                    buttons[i].style ="display:block;"
+                    buttons[i].previousSibling.style ="display:block;"
+                }
+            })
+        })
+    }else{
+        buttons[i].addEventListener("click",function(){
+            var textarea=document.createElement("textarea")
+            buttons[i].style ="display:none;"
+            buttons[i].previousSibling.style ="display:none;"
+            buttons[i].parentElement.appendChild(textarea);
+
+        })
     }
-    buttons[i].addEventListener('click',function(){
-        //if (buttons[i].previousSibling.tagName ==="h1"){
-        
-        console.log(buttons[i].previousSibling.tagName=="H1");
-    })
+    
 }
 
