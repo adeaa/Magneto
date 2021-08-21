@@ -25,11 +25,13 @@
     <main>
         <div class="folders">
             <div class="folder">
-                <span class="folder_title"><h1 >Title</h1><img src="/res/edit.png"></span>
-                <span class="folder_comment"><p >comment</p><img src="/res/edit.png"></span>
+                <span class="folder_title"><input type="text" placeholder=""></span>
+                <span class="folder_comment"><textarea></textarea></span>
                 <div class="folder_files">
-                    <input type="file" class="custom_file_input" >
-
+                    <form action="/php/upload.php" method="POST" enctype="multipart/form-data">
+                        <input type="file" class="custom_file_input" >
+                        <button type="submit" name="submit">
+                </form>
                 </div>
                 
             </div>

@@ -83,6 +83,17 @@ header .header_options span[title]{
   align-items: center;
   justify-content: space-between;
 }
+.folders .folder span input[type="text"]{
+  width: 100%;
+  font-size: 2em;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: bold;
+  margin: 2px;
+}
+.folders .folder span textarea{
+  width:100%;
+  height: inherit;
+}
 .folders .folder .folder_title{
   background-color: #ebeff3;
 }
