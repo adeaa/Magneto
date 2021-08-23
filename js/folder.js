@@ -13,8 +13,7 @@ function check_title(title){
 
 for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.key(i);
-    console.log(`${key}: ${localStorage.getItem(key)}`);
-    console.log(JSON.parse(localStorage.getItem(key)));
+
     
     var contents=JSON.parse(localStorage.getItem(key));
     var addFolder=document.getElementById("add_folder_div")
@@ -65,7 +64,6 @@ document.getElementById('add_folder').addEventListener("click",function(){
     
     var title=title_input.value;
     document.getElementById('title').value="";
-    console.log(title)
     
     if(check_title(title)===true){
         window.localStorage.setItem(title,"{}");
@@ -113,8 +111,7 @@ document.getElementById('add_folder').addEventListener("click",function(){
 //edit button 
 var buttons = document.querySelectorAll("img[src='/res/edit.png']");
 for(let i = 0; i < buttons.length; i++){
-    console.log(i);
-    console.log(buttons[i].parentElement.getAttribute("class"))
+
     if (buttons[i].previousSibling.tagName=="H1"){
         buttons[i].addEventListener("click",function(){
             var text=document.createElement("input")
@@ -135,13 +132,37 @@ for(let i = 0; i < buttons.length; i++){
         })
     }else{
         buttons[i].addEventListener("click",function(){
-            var textarea=document.createElement("textarea")
-            buttons[i].style ="display:none;"
-            buttons[i].previousSibling.style ="display:none;"
+            var textarea=document.createElement("textarea");
+            buttons[i].style ="display:none;";
+            buttons[i].previousSibling.style ="display:none;";
             buttons[i].parentElement.appendChild(textarea);
 
+            var comment_title =buttons[i].parentElement.previousSibling.firstChild.innerHTML;
+            var title_object = JSON.parse(localStorage.getItem(comment_title));
+            textarea.addEventListener("keyup",function(event){
+                if (event.keyCode === 13 ){
+                    title_object["innerp"]=textarea.value
+                    console.log(textarea.value)
+                    window.localStorage.setItem(comment_title,JSON.stringify(title_object))
+                    buttons[i].previousSibling.innerHTML = textarea.value
+                    buttons[i].parentElement.removeChild(textarea)
+                    buttons[i].style ="display:block;"
+                    buttons[i].previousSibling.style ="display:block;"
+                }
+            })
         })
     }
     
 }
-
+/*
+var _lsTotal = 0,
+    _xLen, _x;
+for (_x in localStorage) {
+    if (!localStorage.hasOwnProperty(_x)) {
+        continue;
+    }
+    _xLen = ((localStorage[_x].length + _x.length) * 2);
+    _lsTotal += _xLen;
+    console.log(_x.substr(0, 50) + " = " + (_xLen / 1024).toFixed(2) + " KB")
+};
+console.log("Total = " + (_lsTotal / 1024).toFixed(2) + " KB");*/
