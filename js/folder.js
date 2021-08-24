@@ -64,7 +64,7 @@ document.getElementById('add_folder').addEventListener("click",function(){
     
     var title=title_input.value;
     document.getElementById('title').value="";
-    
+    location.reload();
     if(check_title(title)===true){
         window.localStorage.setItem(title,"{}");
         console.log(localStorage.getItem(title));
@@ -119,14 +119,20 @@ for(let i = 0; i < buttons.length; i++){
             buttons[i].style ="display:none;"
             buttons[i].previousSibling.style ="display:none;"
             buttons[i].parentElement.appendChild(text)
+
+            var title_title =buttons[i].previousSibling.innerHTML;
+            var title_object = JSON.parse(localStorage.getItem(title_title));
             text.addEventListener("keyup",function(event){
                 if (event.keyCode === 13 && check_title(text.value)===true){
                     buttons[i].previousSibling.innerHTML = text.value
+                    title_object["innerh1"]=text.value
                     
-
+                    localStorage.removeItem(title_title)
+                    window.localStorage.setItem(text.value,JSON.stringify(title_object))
                     buttons[i].parentElement.removeChild(text)
                     buttons[i].style ="display:block;"
                     buttons[i].previousSibling.style ="display:block;"
+                    location.reload();
                 }
             })
         })
@@ -154,6 +160,7 @@ for(let i = 0; i < buttons.length; i++){
     }
     
 }
+localStorage.clear()
 /*
 var _lsTotal = 0,
     _xLen, _x;

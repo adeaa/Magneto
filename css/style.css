@@ -1,4 +1,5 @@
 body {
+  background: url(/res/bg-pattern.png) ,linear-gradient(to left, #0a1118, #202931, #0a1118);
   margin: 0;
   padding: 0;
 }
@@ -60,12 +61,14 @@ header .header_options span:hover p{
 
 /*main*/
 .folders {
+ 
   display: flex;
   flex-wrap: wrap;
 }
 .folders div {
-  flex-grow: 2;
-  flex-basis: 48%;
+  background-color: #fff;
+  flex-shrink: 3;
+  flex-basis: 31.5%;
   margin: 5px;
   padding: 5px;
 }
@@ -131,7 +134,7 @@ header .header_options span:hover p{
   max-height: 80px;
   align-items: center;
   border: 2px solid #2029319f;
-  background-color: #dadada69;
+  background-color: #f3f3f3;
   border-radius: 5px;
   width: 100%;
 
@@ -174,36 +177,26 @@ img[src*="plus.png"]:hover {
 img[src*="plus.png"]:active {
   background-color: #0a1118;
 }
-.custom_file_input::-webkit-file-upload-button {
-  visibility: hidden;
-}
-.custom_file_input::before {
-  content: url(/res/plus.png);
-  display: block;
-  width: 32px;
-  height: 32px;
-  padding: 4px;
-  background-color: #0a111869;
-  border-radius: 5px;
-  outline: none;
 
-}
-.custom_file_input:hover::before {
-  background-color: #0a11189c;
-  cursor: pointer;
-}
-.custom_file_input:active::before {
-  background-color: #0a1118;
-}
-input[type="file"]{
-  width: 40px;
-  overflow:hidden;
 
+
+.slogan{
+  background-color: #ebeff3;
+  box-shadow: 10px 3px 20px #a5a5a5;
+  text-align: center;
+  margin: 0;
+}
+.slogan p{
+  width: 25%;
+  margin: auto;
 }
 
 
 /*footer*/
 footer {
+  position:absolute;
+  right: 0;
+  left: 0;
   display: flex;
   align-items: center;
   justify-content: space-around;
