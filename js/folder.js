@@ -13,8 +13,6 @@ function check_title(title){
 
 for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.key(i);
-
-    
     var contents=JSON.parse(localStorage.getItem(key));
     var addFolder=document.getElementById("add_folder_div")
     var folders=addFolder.parentNode;
@@ -22,30 +20,35 @@ for (let i = 0; i < localStorage.length; i++) {
     var chdiv=document.createElement("div");
     var span1=document.createElement("span");
     var span2=document.createElement("span");
+    var span3=document.createElement("span")
     var img1 =document.createElement("img");
+    var img3 =document.createElement("img")
     var p=document.createElement("p");
     var h1=document.createElement("h1");
-    var form=document.createElement("form");
-    var input=document.createElement("input");
+
     div.className = 'folder';
     chdiv.className='folder_files';
     span1.className='folder_title';
     span2.className='folder_comment';
+    span3.className='add_button';
     img1.src= "/res/edit.png";
     var img2=img1.cloneNode(true);
+    img3.src= "/res/plus.png";
     p.innerHTML=contents["innerp"];
     h1.innerHTML=contents["innerh1"];
-    form.action="upload.php";
-    form.method="POST";
-    form.enctype="multipart/form-data"
-    input.className='custom_file_input';
-    input.type="file";
+
     span1.appendChild(h1);
     span1.appendChild(img1);
     span2.appendChild(p);
     span2.appendChild(img2);
-    form.appendChild(input)
-    chdiv.appendChild(form);
+    span3.appendChild(img3);
+    contents["files"].forEach(element => {
+        var h3=document.createElement("h3")
+        h3.innerHTML=element;
+        chdiv.appendChild(h3);
+        
+    });
+    chdiv.appendChild(span3);
     div.appendChild(span1);
     div.appendChild(span2);
     div.appendChild(chdiv);
@@ -75,35 +78,34 @@ document.getElementById('add_folder').addEventListener("click",function(){
         var chdiv=document.createElement("div");
         var span1=document.createElement("span");
         var span2=document.createElement("span");
+        var span3=document.createElement("span");
         var img1 =document.createElement("img");
+        var img3=document.createElement("img");
         var p=document.createElement("p");
         var h1=document.createElement("h1");
-        var form=document.createElement("form")
-        var input=document.createElement("input");
+        
         div.className = 'folder';
         chdiv.className='folder_files';
         span1.className='folder_title';
         span2.className='folder_comment';
+        span3.className='add_button'
         img1.src= "/res/edit.png";
         var img2=img1.cloneNode(true);
+        img3.src= "/res/plus.png"
         p.innerHTML='comment';
         h1.innerHTML=title;
-        form.action="upload.php";
-        form.method="POST";
-        form.enctype="multipart/form-data";
-        input.className='custom_file_input';
-        input.type="file";
+
         span1.appendChild(h1);
         span1.appendChild(img1);
         span2.appendChild(p);
         span2.appendChild(img2);
-        form.appendChild(input);
-        chdiv.appendChild(form);
+        span3.appendChild(img3);
+        chdiv.appendChild(span3);
         div.appendChild(span1);
         div.appendChild(span2);
         div.appendChild(chdiv);
         folders.insertBefore(div,addFolder);
-        const title_objs={innerp:"comment",innerh1:title,files:{}}
+        const title_objs={innerp:"comment",innerh1:title,files:[]}
         window.localStorage.setItem(title,JSON.stringify(title_objs));
     }
 })
@@ -160,16 +162,39 @@ for(let i = 0; i < buttons.length; i++){
     }
     
 }
-localStorage.clear()
-/*
-var _lsTotal = 0,
-    _xLen, _x;
-for (_x in localStorage) {
-    if (!localStorage.hasOwnProperty(_x)) {
-        continue;
-    }
-    _xLen = ((localStorage[_x].length + _x.length) * 2);
-    _lsTotal += _xLen;
-    console.log(_x.substr(0, 50) + " = " + (_xLen / 1024).toFixed(2) + " KB")
-};
-console.log("Total = " + (_lsTotal / 1024).toFixed(2) + " KB");*/
+
+//add buttons
+var add_buttons = document.querySelectorAll(".add_button img[src='/res/plus.png']");
+console.log(add_buttons)
+
+for(let i = 0; i < add_buttons.length; i++){
+    add_buttons[i].addEventListener('click',function(){
+        var input=document.createElement("input")
+        input.type="text"
+        add_buttons[i].style ="display:none;"
+        add_buttons[i].parentNode.insertBefore(input,add_buttons[i])
+        input.addEventListener('keyup',function(event){
+                if (event.keyCode === 13 ){
+                var span=document.createElement("span");
+                var h3=document.createElement("h3");
+                span.className= "file";
+                h3.innerHTML=input.value;
+                span.appendChild(h3)
+                add_buttons[i].parentNode.removeChild(input)
+                add_buttons[i].style ="display:block;"
+                add_buttons[i].parentNode.insertBefore(span,add_buttons[i])
+                var title=add_buttons[i].parentElement.parentElement.parentElement.firstChild.firstChild.innerHTML
+                console.log(title)
+                var contents=JSON.parse(localStorage.getItem(title));
+                contents["files"].push(input.value)
+                console.log(contents["files"])
+
+                localStorage.setItem(title,JSON.stringify(contents))
+                console.log(localStorage.getItem(title));
+
+            }
+        })
+    })
+}
+
+    

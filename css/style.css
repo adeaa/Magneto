@@ -1,3 +1,8 @@
+:root{
+  --main_color:#0a1118;
+  --secondary_color:#fff;
+}
+
 body {
   background: url(/res/bg-pattern.png) ,linear-gradient(to left, #0a1118, #202931, #0a1118);
   margin: 0;
@@ -7,6 +12,10 @@ h1,
 h2{
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
+  padding: 0;
+}
+h3{
+  font-family: monospace;
   padding: 0;
 }
 h1{
@@ -28,7 +37,6 @@ header {
 }
 header div {
   display: inline-flex;
-  align-items: center;
 }
 header div img {
   margin: 20px;
@@ -37,26 +45,50 @@ header div h1 {
   color: #fff;
   margin: 20px;
 }
-header .header_options span {
+header .header_themes span {
   border-radius: 15px;
   margin: 5px;
-  
   padding: 0px;
   background-color: rgba(255, 255, 255, 0.041);
 }
-header .header_options span:hover {
+header .header_themes span img{
+  width: 32px;
+}
+header .header_themes span:hover {
   background-color: rgba(255, 255, 255, 0.226);
 }
-header .header_options span p{
-  display: none;  
+.header_themes {
+  position: relative;
+  display: inline-block;
 }
 
-header .header_options span:hover p{
+/* Dropdown Content (Hidden by Default) */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-menu h5 {
+
+  color: white;
+  padding: 12px 16px;
   display: block;
-  transition: width 5s;
-  width: 200px;
-
 }
+
+/* Change color of dropdown links on hover */
+.dropdown-menu h5:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.header_themes:hover .dropdown-menu{
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
   
 
 /*main*/
@@ -82,6 +114,11 @@ header .header_options span:hover p{
   align-items: center;
   justify-content: space-between;
 }
+.folders .folder .add_button{
+  width:100%;
+  display:flex;
+  flex-direction: column;
+}
 .folders .folder span input[type="text"]{
   width: 100%;
   text-align: center;
@@ -104,6 +141,7 @@ header .header_options span:hover p{
 }
 .folders .folder .folder_comment{
   background-color: #f1f4f7;
+  max-width:100% ;
 }
 .folders .folder img[src*="edit.png"] {
   float: right;
