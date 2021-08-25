@@ -1,10 +1,26 @@
 :root{
   --main_color:#0a1118;
-  --secondary_color:#fff;
+  --main_color_t1:#0a111869;
+  --main_color_t2:#0a11183a;
+  --second_color: #202931;
+  --third_color: #ebeff3;
+  --fourth_color:#f1f4f7;
+  
+  --palet_1:#00080d;
+  /*--palet_1_s:;*/
+  --palet_2:#001927;
+  /*--palet_2_s:;*/
+  --palet_3:#012a41;
+  /*--palet_3_s:;*/
+  --palet_4:#013b5b;
+  /*--palet_4_s:;*/
+  --palet_5:#014c75;
+  /*--palet_5_s:;*/
+
 }
 
 body {
-  background: url(/res/bg-pattern.png) ,linear-gradient(to left, #0a1118, #202931, #0a1118);
+  background: url(/res/bg-pattern.png) ,linear-gradient(to left, var(--main_color), var(--second_color), var(--main_color));
   margin: 0;
   padding: 0;
 }
@@ -14,15 +30,15 @@ h2{
     "Lucida Sans", Arial, sans-serif;
   padding: 0;
 }
-h3{
+h3,h4,h5{
   font-family: monospace;
   padding: 0;
 }
 h1{
-  color: #0a1118;
+  color: var(--main_color);
 }
 h2{
-  color:#202931;
+  color:var(--second_color);
 }
 p{
   font-family:Verdana, Geneva, Tahoma, sans-serif;
@@ -32,7 +48,7 @@ p{
 header {
   display: flex;
   justify-content: space-between;
-  background-image: linear-gradient(to right, #0a1118, #202931, #0a1118);
+  background-image: linear-gradient(to right, var(--main_color),var(--second_color), var(--main_color));
   width: 100%;
 }
 header div {
@@ -46,53 +62,56 @@ header div h1 {
   margin: 20px;
 }
 header .header_themes span {
+  display: inline-flex;
+  align-items: center ;
   border-radius: 15px;
+  border:2px solid var(--main_color);
   margin: 5px;
-  padding: 0px;
-  background-color: rgba(255, 255, 255, 0.041);
+  padding-right: 10px;
+  color: white;
 }
 header .header_themes span img{
   width: 32px;
 }
-header .header_themes span:hover {
+header .header_themes span:hover{
+  cursor: pointer;
   background-color: rgba(255, 255, 255, 0.226);
 }
-.header_themes {
+.header_themes{
   position: relative;
   display: inline-block;
 }
 
-/* Dropdown Content (Hidden by Default) */
-.dropdown-menu {
+.dropdown_menu{
   display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+  position:absolute;
+  background-color:var(--third_color);
+  width: 150px;
+ 
+
 }
-
-/* Links inside the dropdown */
-.dropdown-menu h5 {
-
-  color: white;
+.dropdown_menu h5{
+  color: black;
   padding: 12px 16px;
   display: block;
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-menu h5:hover {background-color: #ddd;}
+.dropdown_menu h5:hover {
+  cursor: pointer;
+  color: white;
+  background-color: var(--second_color);
+}
 
 /* Show the dropdown menu on hover */
-.header_themes:hover .dropdown-menu{
+.header_themes:hover .dropdown_menu{
   display: block;
 }
 
-/* Change the background color of the dropdown button when the dropdown content is shown */
   
 
 /*main*/
-.folders {
+.folders{
  
   display: flex;
   flex-wrap: wrap;
@@ -105,7 +124,7 @@ header .header_themes span:hover {
   padding: 5px;
 }
 .folders .folder {
-  border: 2px solid #202931;
+  border: 2px solid var(--second_color);
   border-radius: 5px;
 }
 .folders .folder span{
@@ -119,7 +138,7 @@ header .header_themes span:hover {
   display:flex;
   flex-direction: column;
 }
-.folders .folder span input[type="text"]{
+ .folder span input[type="text"]{
   width: 100%;
   text-align: center;
   font-size: 2em;
@@ -127,106 +146,169 @@ header .header_themes span:hover {
   font-weight: bold;
   margin: 7px;
 }
-.folders .folder span textarea{
+ .folder span textarea{
   width:100%;
   height: inherit;
   margin: 8px;
 }
-.folders .folder .folder_title{
-  background-color: #ebeff3;
+ .folder .folder_title{
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--third_color);
 }
-.folders .folder .folder_title h1{
+ .folder .folder_title h1{
   margin: auto;
   margin: 10px;
 }
-.folders .folder .folder_comment{
-  background-color: #f1f4f7;
+.folder .folder_title .title_options,
+.folder .folder_comment .comment_options,
+.folder .folder_files .file_options{
+  background-color: transparent;
+  display: flex;
+  justify-content: flex-end;
+  padding:0;
+  margin:0;
+}
+.folder_title .title_options .color_section{
+  display: flex;
+  position: relative;
+}
+.folder_title .title_options .color_palet{
+  z-index: 1;
+  transition: all 5000ms;
+  display: none;
+  position: absolute;
+  margin-top: 30px;
+}
+.folder_title .title_options .color_section:hover .color_palet{
+  display:block; 
+}
+.folder_title .title_options .color_palet img{
+  display: block;
+  width:32px;
+}
+.folder_title .title_options .color_palet img:hover{
+  cursor: pointer;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+#color1{
+  background-color: var(--palet_1);
+}
+#color2{
+  background-color: var(--palet_2);
+}
+#color3{
+  background-color: var(--palet_3);
+}
+#color4{
+  background-color: var(--palet_4);
+}
+#color5{
+  background-color: var(--palet_5);
+}
+ .folder .folder_comment{
+  background-color: var(--third_color);
   max-width:100% ;
 }
-.folders .folder img[src*="edit.png"] {
-  float: right;
+ .folder img[src*="edit"],
+ .folder img[src*="color.png"],
+ .folder img[src*="delete"]{
   padding: 4px;
+  margin: 2px;
   border-radius: 5px;
   transition:all ease-in-out 0.1s;
-  background-color: #0a111869;
+  background-color: var(--main_color_t2);
 }
-.folders .folder .folder_title img[src*="edit.png"] {
+.folder .folder_title img[src*="edit"],
+.folder .folder_title img[src*="color.png"],
+.folder .folder_title img[src*="delete"] {
   width: 20px;
 }
-.folders .folder .folder_comment img[src*="edit.png"] {
+.folder .folder_comment img[src*="edit"]{
   width: 16px;
 }
-.folders .folder img[src*="edit.png"]:hover {
-  background-color: #0a11189c;
+.folder .folder_files img[src*="edit"],
+.folder .folder_files img[src*="delete"]{
+  width:14px;
+}
+.folder img[src*="edit"]:hover,
+.folder img[src*="color.png"]:hover,
+.folder img[src*="delete"]:hover {
+  background-color: var(--main_color_t1);
   cursor: pointer;
 }
-.folders .folder img[src*="edit.png"]:active {
-  background-color: #0a1118;
+.folder img[src*="edit"]:active,
+.folder img[src*="color.png"]:active,
+.folder img[src*="delete"]:active{
+  background-color: var(--main_color);
 }
+
 .folder #add_folder_div{
   padding: 5px;
   margin: 5px;
 }
-.folders #add_folder_div{
+ #add_folder_div{
   display: inline-flex;
   max-height: 80px;
   align-items: center;
-  border: 2px solid #2029319f;
+  border: 2px solid var(--second_color);
   background-color: #f3f3f3;
   border-radius: 5px;
   width: 100%;
 
 }
-.folders #add_folder_div input{
+ #add_folder_div input{
   width: 1500%;
   margin: 10px;
 }
-.folders #add_folder_div button:hover {
-  background-color: #0a11189c;
+ #add_folder_div button:hover {
+  background-color: var(--main_color_t1);
   cursor: pointer;
 }
-.folders #add_folder_div button:active {
-  background-color: #0a1118;
+ #add_folder_div button:active {
+  background-color: var(--main_color);
 }
-.folders #add_folder_div button{
+ #add_folder_div button{
   display:inline-flex;
   align-items: center;
   justify-content: center;
   height: 60px;
   transition:all ease-in-out 0.1s;
-  border: 2px solid #2029319f;
+  border: 2px solid var(--second_color);
   border-radius: 5px;
-  background-color: #0a111869;
+  background-color: var(--main_color_t2);
   color: white;
 }
-.folders #add_folder_div button img[src*="plus.png"] {
+ #add_folder_div button img[src*="plus"] {
   background-color: unset;
 }
-img[src*="plus.png"] {
+img[src*="plus"] {
   padding: 4px;
   border-radius: 5px;
   transition:all ease-in-out 0.1s;
-  background-color: #0a111869;
+  background-color: var(--main_color_t2);
 }
-img[src*="plus.png"]:hover {
-  background-color: #0a11189c;
+img[src*="plus"]:hover {
+  background-color: var(--main_color_t1);
   cursor: pointer;
 }
-img[src*="plus.png"]:active {
-  background-color: #0a1118;
+img[src*="plus"]:active {
+  background-color: var(--main_color);
 }
 
 
 
 .slogan{
   background-color: #ebeff3;
-  box-shadow: 10px 3px 20px #a5a5a5;
+  box-shadow: 0px 8px 16px 0px #0000007c;
   text-align: center;
-  margin: 0;
+  margin: 20px 0px;
 }
 .slogan p{
   width: 25%;
-  margin: auto;
+  margin: auto ;
+  padding: 10px;
 }
 
 

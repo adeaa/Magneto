@@ -1,3 +1,0 @@
-function dropdown_themes(){
-    
-}
