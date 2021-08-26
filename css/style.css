@@ -1,26 +1,32 @@
 :root{
-  --main_color:#0a1118;
-  --main_color_t1:#0a111869;
-  --main_color_t2:#0a11183a;
-  --second_color: #202931;
-  --third_color: #ebeff3;
-  --fourth_color:#f1f4f7;
-  
-  --palet_1:#00080d;
-  /*--palet_1_s:;*/
-  --palet_2:#001927;
-  /*--palet_2_s:;*/
-  --palet_3:#012a41;
-  /*--palet_3_s:;*/
-  --palet_4:#013b5b;
-  /*--palet_4_s:;*/
-  --palet_5:#014c75;
-  /*--palet_5_s:;*/
-
+  --main_color:#000000;
+  --main_color_t1:#00000069;
+  --main_color_t2:hsla(0, 0%, 0%, 0.227);
+  --second_color: #5eff00;
+  --third_color: #c8ff00;
+  --fourth_color:#e5ff00;
+  --palet_1:#7aff01;
+  --palet_1_1:#c2ff03;
+  --palet_1_2:#cdeb24;
+  --palet_2:#0020fe;
+  --palet_2_1:#6820ea;
+  --palet_2_2:#8200ff;
+  --palet_3:#cb22ea;
+  --palet_3_1:#dc48f7;
+  --palet_3_2:#e680f8;
+  --palet_4:#fe1500;
+  --palet_4_1:#ea4b21;
+  --palet_4_2:#ff5940;
+  --palet_5:#fffd01;
+  --palet_5_1:#ffb600;
+  --palet_5_2:#ff9600;
+  --font_color1:#000;
+  --font_color2:#000;
+  --font_color3:#000;
 }
 
 body {
-  background: url(/res/bg-pattern.png) ,linear-gradient(to left, var(--main_color), var(--second_color), var(--main_color));
+  background: url(/res/neon_bg.jpg) ,linear-gradient(to left, var(--main_color), var(--second_color), var(--main_color));
   margin: 0;
   padding: 0;
 }
@@ -85,10 +91,9 @@ header .header_themes span:hover{
 .dropdown_menu{
   display: none;
   position:absolute;
+  z-index: 2;
   background-color:var(--third_color);
   width: 150px;
- 
-
 }
 .dropdown_menu h5{
   color: black;
@@ -101,6 +106,9 @@ header .header_themes span:hover{
   cursor: pointer;
   color: white;
   background-color: var(--second_color);
+}
+.dropdown_menu h5:active {
+  transform: scale(0.95);
 }
 
 /* Show the dropdown menu on hover */
@@ -124,7 +132,7 @@ header .header_themes span:hover{
   padding: 5px;
 }
 .folders .folder {
-  border: 2px solid var(--second_color);
+  border: 2px solid var(--main_color);
   border-radius: 5px;
 }
 .folders .folder span{
@@ -151,12 +159,12 @@ header .header_themes span:hover{
   height: inherit;
   margin: 8px;
 }
- .folder .folder_title{
+.folder_title{
   display: flex;
   justify-content: space-between;
-  background-color: var(--third_color);
 }
  .folder .folder_title h1{
+  color: var(--font_color1);
   margin: auto;
   margin: 10px;
 }
@@ -192,24 +200,73 @@ header .header_themes span:hover{
   border: 1px solid black;
   border-radius: 5px;
 }
-#color1{
+.folder_title .title_options .color_palet img:active{
+  transform: scale(0.95);
+}
+.folder_title.color0{
+  background-color: var(--second_color);
+}
+.folder_comment.color0{
+  background-color: var(--third_color);
+}
+.folder_files .color0{
+  background-color: var(--fourth_color);
+  color: var(--font_color2);
+}
+#color1,
+.folder_title.color1{
   background-color: var(--palet_1);
 }
-#color2{
+.folder_comment.color1{
+  background-color: var(--palet_1_1);
+}
+.folder_files .color1{
+  background-color: var(--palet_1_2);
+  color: var(--font_color2);
+}
+#color2,
+.folder_title.color2{
   background-color: var(--palet_2);
 }
-#color3{
+.folder_comment.color2{
+  background-color: var(--palet_2_1);
+}
+.folder_files .color2{
+  background-color: var(--palet_2_2);
+  color: var(--font_color2);
+}
+#color3,
+.folder_title.color3{
   background-color: var(--palet_3);
 }
-#color4{
+.folder_comment.color3{
+  background-color: var(--palet_3_1);
+}
+.folder_files .color3{
+  background-color: var(--palet_3_2);
+  color: var(--font_color3);
+}
+#color4,
+.folder_title.color4{
   background-color: var(--palet_4);
 }
-#color5{
+.folder_comment.color4{
+  background-color: var(--palet_4_1);
+}
+.folder_files .color4{
+  background-color: var(--palet_4_2);
+  color: var(--font_color3);
+}
+#color5,
+.folder_title.color5{
   background-color: var(--palet_5);
 }
- .folder .folder_comment{
-  background-color: var(--third_color);
-  max-width:100% ;
+.folder_comment.color5{
+  background-color: var(--palet_5_1);
+}
+.folder_files .color5{
+  background-color: var(--palet_5_2);
+  color:var(--font_color3);
 }
  .folder img[src*="edit"],
  .folder img[src*="color.png"],
@@ -241,9 +298,21 @@ header .header_themes span:hover{
 .folder img[src*="edit"]:active,
 .folder img[src*="color.png"]:active,
 .folder img[src*="delete"]:active{
+  transform: scale(0.95);
   background-color: var(--main_color);
 }
-
+.folder_comment{
+  color: var(--font_color1);
+}
+.folder .folder_files{
+  padding:0;
+  margin-right: 0;
+  margin-left: 0;
+}
+.folder .folder_files span{
+  width: 100%;
+  margin:1px;
+}
 .folder #add_folder_div{
   padding: 5px;
   margin: 5px;
@@ -267,6 +336,7 @@ header .header_themes span:hover{
   cursor: pointer;
 }
  #add_folder_div button:active {
+  transform: scale(0.95);
   background-color: var(--main_color);
 }
  #add_folder_div button{
@@ -294,6 +364,7 @@ img[src*="plus"]:hover {
   cursor: pointer;
 }
 img[src*="plus"]:active {
+  transform: scale(0.95);
   background-color: var(--main_color);
 }
 
@@ -314,11 +385,8 @@ img[src*="plus"]:active {
 
 /*footer*/
 footer {
-  position:absolute;
-  right: 0;
-  left: 0;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-around;
   background-color: #e6e6e6;
 }
