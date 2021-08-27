@@ -1,7 +1,7 @@
 function set_theme(theme){
     if (theme==="deep_ocean"){
         localStorage.setItem("theme","deep_ocean")
-        document.body.style.backgroundImage = "url('/res/deep_ocean_bg.png')";
+        document.body.style.backgroundImage = "url('/res/deep_ocean_bg.jpg')";
         document.documentElement.style.setProperty('--main_color','#0a1118');
         document.documentElement.style.setProperty('--main_color_t1','#0a111869');
         document.documentElement.style.setProperty('--main_color_t2','#0a11183a');
@@ -198,7 +198,6 @@ function add_function(button){
                 divopts3.appendChild(trash2);
                 file.appendChild(h3);
                 file.appendChild(divopts3);  
-                chdiv.appendChild(file);
                 button.parentElement.parentNode.removeChild(input);
                 button.style ="display:block;";
                 button.parentElement.parentNode.insertBefore(file,button.parentElement);
@@ -444,8 +443,6 @@ for(let i = 0; i < add_buttons.length; i++){
 }
 //color buttons
 var color_buttons=document.querySelectorAll("img[src='/res/color_palet.png']");
-console.log(color_buttons)
-
 for(let i = 0; i < color_buttons.length; i++){
     color_button(color_buttons[i])
 }

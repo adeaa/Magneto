@@ -1,0 +1,228 @@
+:root{
+    --main_color:#0a1118;
+    --main_color_t1:#0a111869;
+    --main_color_t2:#0a11183a;
+    --second_color: #202931;
+    --third_color: #636f79;
+    --fourth_color:#38444e;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2{
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  padding: 0;
+}
+h3,h4,h5{
+  font-family: monospace;
+  padding: 0;
+}
+h1{
+  color: var(--main_color);
+}
+h2{
+  color:var(--second_color);
+}
+p{
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/*header*/
+header {
+  display: flex;
+  justify-content: space-between;
+  background-image: linear-gradient(to right, var(--main_color),var(--second_color), var(--main_color));
+  width: 100%;
+}
+header div {
+  display: inline-flex;
+}
+header div img {
+  margin: 20px;
+}
+header div a{
+  text-decoration: none;
+  color: #fff;
+}
+header div a h1{
+  color: #fff;
+  margin: 20px;
+}
+/*main*/
+
+/*button*/
+.button {
+  border-radius: 4px;
+  background-color: var(--second_color);
+  border: none;
+  border-radius: 45px;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 25px;
+  padding: 17px;
+  width: 250px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+.button a {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+.button a:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.button:hover a {
+  padding-right: 25px;
+}
+.button:hover a:after {
+  opacity: 1;
+  right: 0;
+}
+button, button::after {
+  box-shadow: 6px 0px 0px var(--third_color);
+  outline: transparent;
+  position: relative;
+}
+button::after {
+  --slice-0: inset(50% 50% 50% 50%);
+  --slice-1: inset(80% -6px 0 0);
+  --slice-2: inset(50% -6px 30% 0);
+  --slice-3: inset(10% -6px 85% 0);
+  --slice-4: inset(40% -6px 43% 0);
+  --slice-5: inset(80% -6px 5% 0);
+  content: 'Get Started';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 3%, var(--fourth_color) 3%, var(--fourth_color) 5%, var(--second_color) 5%);
+  text-shadow: -3px -3px 0px #9b6500, 3px 3px 0px var(--fourth_color);
+  clip-path: var(--slice-0);
+}
+button:hover::after {
+  animation: 1s glitch;
+  animation-timing-function: steps(2, end);
+}
+@keyframes glitch {
+  0% {
+    clip-path: var(--slice-1);
+    transform: translate(-20px, -10px);
+  }
+  10% {
+    clip-path: var(--slice-3);
+    transform: translate(10px, 10px);
+  }
+  20% {
+    clip-path: var(--slice-1);
+    transform: translate(-10px, 10px);
+  }
+  30% {
+    clip-path: var(--slice-3);
+    transform: translate(0px, 5px);
+  }
+  40% {
+    clip-path: var(--slice-2);
+    transform: translate(-5px, 0px);
+  }
+  50% {
+    clip-path: var(--slice-3);
+    transform: translate(5px, 0px);
+  }
+  60% {
+    clip-path: var(--slice-4);
+    transform: translate(5px, 10px);
+  }
+  70% {
+    clip-path: var(--slice-2);
+    transform: translate(-10px, 10px);
+  }
+  80% {
+    clip-path: var(--slice-5);
+    transform: translate(20px, -10px);
+  }
+  90% {
+    clip-path: var(--slice-1);
+    transform: translate(-10px, 0px);
+  }
+  100% {
+    clip-path: var(--slice-1);
+    transform: translate(0);
+  }
+}
+
+/*headlines and text blocks*/
+main .blanc{
+  margin: 20px;
+}
+hr{
+  width: 70px;
+  height: 3px;
+  background-color: var(--main_color);
+  border: var(--second_color);
+  margin: auto;
+}
+
+.get_started_t{
+  height: 100vh;
+  background: url('/res/planning.jpg');
+  background-repeat:no-repeat; 
+  background-position:center;
+  background-size: cover;
+}
+main .headline{
+  margin: 5px;
+  color: #fff;
+  font-size: 28px;
+  font-family: monospace;
+}
+main .text_block{
+  color: rgb(209, 208, 208);
+  padding: 40px 200px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#themes{
+  background-color: var(--fourth_color);
+  height: 70vh;
+
+}
+#why{
+  background-color: var(--third_color);
+  height: 70vh;
+
+}
+#features{
+  background-color: var(--fourth_color);
+  height: 70vh;
+
+}
+main .block{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  text-align: center;
+}
+
+/*footer*/
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #e6e6e6;
+}

@@ -1,34 +1,40 @@
 :root{
-  --main_color:#000000;
-  --main_color_t1:#00000069;
-  --main_color_t2:hsla(0, 0%, 0%, 0.227);
-  --second_color: #5eff00;
-  --third_color: #c8ff00;
-  --fourth_color:#e5ff00;
-  --palet_1:#7aff01;
-  --palet_1_1:#c2ff03;
-  --palet_1_2:#cdeb24;
-  --palet_2:#0020fe;
-  --palet_2_1:#6820ea;
-  --palet_2_2:#8200ff;
-  --palet_3:#cb22ea;
-  --palet_3_1:#dc48f7;
-  --palet_3_2:#e680f8;
-  --palet_4:#fe1500;
-  --palet_4_1:#ea4b21;
-  --palet_4_2:#ff5940;
-  --palet_5:#fffd01;
-  --palet_5_1:#ffb600;
-  --palet_5_2:#ff9600;
-  --font_color1:#000;
-  --font_color2:#000;
+  --main_color:#0a1118;
+  --main_color_t1:#0a111869;
+  --main_color_t2:#0a11183a;
+  --second_color: #202931;
+  --third_color: #27313a;
+  --fourth_color:#38444e;
+  --palet_1:#000000;
+  --palet_1_1:#00080d;
+  --palet_1_2:#00111a;
+  --palet_2:#00111a;
+  --palet_2_1:#001927;
+  --palet_2_2:#002234;
+  --palet_3:#002234;
+  --palet_3_1:#012a41;
+  --palet_3_2:#01324e;
+  --palet_4:#01324e;
+  --palet_4_1:#013b5b;
+  --palet_4_2:#014368;
+  --palet_5:#014368;
+  --palet_5_1:#014c75;
+  --palet_5_2:#015e91;
+  --font_color1:#fff;
+  --font_color2:#fff;
   --font_color3:#000;
 }
-
+html, body {
+  height: 100%;
+  width: 100%;
+}
 body {
-  background: url(/res/neon_bg.jpg) ,linear-gradient(to left, var(--main_color), var(--second_color), var(--main_color));
+  background: url('/res/deep_ocean_bg.jpg') ;
   margin: 0;
   padding: 0;
+}
+main{
+  height: 100vh;
 }
 h1,
 h2{
@@ -60,10 +66,14 @@ header {
 header div {
   display: inline-flex;
 }
-header div img {
+header div img{
   margin: 20px;
 }
-header div h1 {
+header div a{
+  text-decoration: none;
+  color: #fff;
+}
+header div a h1{
   color: #fff;
   margin: 20px;
 }
@@ -313,6 +323,9 @@ header .header_themes span:hover{
   width: 100%;
   margin:1px;
 }
+.folder .folder_files input{
+  width: 96%;
+}
 .folder #add_folder_div{
   padding: 5px;
   margin: 5px;
@@ -385,8 +398,19 @@ img[src*="plus"]:active {
 
 /*footer*/
 footer {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   display: flex;
-  align-items: flex-end;
   justify-content: space-around;
   background-color: #e6e6e6;
+
 }
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+main {
+  flex-grow: 1;
+}
+
