@@ -342,7 +342,7 @@ header .header_themes span:hover{
 }
  #add_folder_div input{
   position: relative;
-  width: 30vh;
+  width: 30vw;
   padding: 10px 0px;
   margin: 10px;
 }

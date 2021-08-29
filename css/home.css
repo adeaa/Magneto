@@ -218,7 +218,10 @@ main .block{
   margin: auto;
   text-align: center;
 }
-
+.get_started_button{
+  display: flex;
+  justify-content: center;
+}
 /*footer*/
 footer {
   display: flex;
